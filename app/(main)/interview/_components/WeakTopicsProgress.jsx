@@ -49,61 +49,7 @@ export default function WeakTopicsProgress({ assessments = [] }) {
     };
   };
 
-//   const handleQuizCompletion = async (topic, newScore) => {
-//     setIsSaving(true);
 
-//     try {
-//       await saveQuizResult(topic, newScore);
-
-//       setProgressMap((prev) => {
-//         const topicEntries = prev.filter((t) => t.topic === topic);
-//         const latestAttempt =
-//           topicEntries.length > 0 ? topicEntries[topicEntries.length - 1] : null;
-
-//         const updatedEntry = {
-//           topic,
-//           score: Math.max(newScore, latestAttempt?.score || 0),
-//           attempts: (latestAttempt?.attempts || 0) + 1,
-//         };
-
-//         return [...prev.filter((t) => t.topic !== topic), updatedEntry];
-//       });
-
-//       setActiveTopic(null);
-//     } catch (error) {
-//       console.error("Failed to save quiz result:", error);
-//     } finally {
-//       setIsSaving(false);
-//     }
-//   };
-// const handleQuizCompletion = async (topic, newScore) => {
-//     setIsSaving(true);
-  
-//     try {
-//       await saveQuizResult(topic, newScore, true); // Pass `true` to indicate a weak topic quiz
-  
-//       setProgressMap((prev) => {
-//         const topicEntries = prev.filter((t) => t.topic === topic);
-//         const latestAttempt =
-//           topicEntries.length > 0 ? topicEntries[topicEntries.length - 1] : null;
-  
-//         const updatedEntry = {
-//           topic,
-//           score: Math.max(newScore, latestAttempt?.score || 0),
-//           attempts: (latestAttempt?.attempts || 0) + 1,
-//           isWeakTopicQuiz: true, // ✅ Mark it as a weak topic quiz
-//         };
-  
-//         return [...prev.filter((t) => t.topic !== topic), updatedEntry];
-//       });
-  
-//       setActiveTopic(null);
-//     } catch (error) {
-//       console.error("Failed to save quiz result:", error);
-//     } finally {
-//       setIsSaving(false);
-//     }
-//   };.
 
 const handleQuizCompletion = async (topic, newScore) => {
     setIsSaving(true);
@@ -112,7 +58,7 @@ const handleQuizCompletion = async (topic, newScore) => {
       await saveQuizResult({
         quizScore: newScore,
         category: "Weak Topic",
-        questions: [{ topic, weakTopicQuiz: true }], // ✅ Embed marker inside questions array
+        questions: [{ topic, weakTopicQuiz: true }], 
       });
   
       setProgressMap((prev) => {
@@ -236,7 +182,7 @@ const handleQuizCompletion = async (topic, newScore) => {
   );
 }
 
-// Simulated save function (replace with actual API call)
+
 const saveQuizResult = (topic, score) => {
   return new Promise((resolve) => setTimeout(() => resolve(true), 1500));
 };

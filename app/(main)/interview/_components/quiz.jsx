@@ -95,7 +95,7 @@ export default function Quiz() {
     });
 
     const weakTopicsArray = [...weakTopicsSet];
-    setWeakTopics(weakTopicsArray); // Update weak topics internally
+    setWeakTopics(weakTopicsArray); 
     return {
       score: (correct / quizData.length) * 100,
       weakTopics: weakTopicsArray,
@@ -107,7 +107,7 @@ export default function Quiz() {
 
     try {
       await saveQuizResultFn(quizData, answers, score);
-      setWeakTopics(weakTopics); // Update weak topics for tracking
+      setWeakTopics(weakTopics); 
       toast.success("Quiz completed!");
     } catch (error) {
       toast.error(error.message || "Failed to save quiz results");
@@ -118,14 +118,14 @@ export default function Quiz() {
     setCurrentQuestion(0);
     setAnswers([]);
 
-    // Get selected topics and custom topics
+    
     const selectedValues = selectedTopics.map((topic) => topic.value);
     const customValues = customTopics
       .split(",")
       .map((topic) => topic.trim())
       .filter(Boolean);
 
-    // Combine all topics into one array (excluding weak topics from UI)
+    
     const allTopics = [...selectedValues, ...customValues];
 
     console.log("Starting new quiz with topics:", allTopics);
@@ -176,7 +176,7 @@ export default function Quiz() {
             placeholder="Add custom topics (comma separated)"
             value={customTopics}
             onChange={(e) => setCustomTopics(e.target.value)}
-            className="mt-4 w-full p-2 border rounded bg-white"
+            className="mt-4 w-full p-2 border rounded text-black bg-white"
           />
         </CardContent>
         <CardFooter>

@@ -1,13 +1,13 @@
-"use client"; // ✅ Client component for interactivity
+"use client"; 
 import { useState } from "react";
 import WeakTopicsProgress from "./WeakTopicsProgress"
-import WeakTopicQuiz from "@/components/WeakTopicQuiz"; // Starts quiz
+import WeakTopicQuiz from "@/components/WeakTopicQuiz"; 
 
 export default function WeakTopicsContainer({ assessments }) {
-  const [selectedTopic, setSelectedTopic] = useState(null); // Track selected weak topic
+  const [selectedTopic, setSelectedTopic] = useState(null); 
 
   const handleStartQuiz = (topic) => {
-    setSelectedTopic(topic); // Set the selected topic for the quiz
+    setSelectedTopic(topic); 
   };
 
   return (
